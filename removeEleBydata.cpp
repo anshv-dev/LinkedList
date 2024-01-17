@@ -30,19 +30,19 @@ Node* removeKposition(Node* head,int k){
   if(head==NULL){
     return head;
   }
-  else if(k==1){
+  else if(head->data==k){
     Node* temp=head;
     head=head->next;
     free(temp);
     return head;
   }
 
-  int count=0;
+  // int count=0;
   Node* temp=head;
   Node* prev=NULL;
   while(temp!=NULL){
-    count++;
-    if(count==k){
+    // count++;
+    if(temp->data==k){
       prev->next=prev->next->next;
       free(temp);
       break;
@@ -61,10 +61,9 @@ void print(Node* head){
      }
 }
 int main(){
-vector<int>arr={22,5,8,7};
+vector<int>arr={22,5,8,7,34,56};
 Node* head=convertArr2LL(arr);
-// head=removeTail(head);
-int k=2;
+int k=34;
 head=removeKposition(head,k);
 print(head);
 return 0;
