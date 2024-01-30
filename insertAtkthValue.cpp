@@ -33,18 +33,18 @@ Node* convertArr2LL(vector<int>&arr){
 }
 
 
-Node* InsertAtEnd(Node* head,int val){
-    if(head==NULL){
-      return new Node(val);
-    }
-    Node* temp=head;
-    while(temp->next!=NULL){
-      temp=temp->next;
-    }
-    Node* newNode=new Node(val);
-    temp->next=newNode;
-    return head;
-}
+// Node* InsertAtEnd(Node* head,int val){
+//     if(head==NULL){
+//       return new Node(val);
+//     }
+//     Node* temp=head;
+//     while(temp->next!=NULL){
+//       temp=temp->next;
+//     }
+//     Node* newNode=new Node(val);
+//     temp->next=newNode;
+//     return head;
+// }
 void print(Node* head){
      Node* temp=head;
      while(temp!=NULL){
@@ -52,12 +52,34 @@ void print(Node* head){
           temp=temp->next;
      }
 }
+
+Node* insertBeforeVAlue(Node* head,int el,int val){
+  if(head==NULL){
+    return NULL;
+  }
+  if(head->data==val){
+     return new Node(el,head);
+  }
+
+  Node* temp=head;
+  while(temp->next!=NULL){
+    // cnt++;
+    if(temp->next->data==val){
+      Node* x=new Node(el,temp->next);
+      temp->next=x;
+      break;
+    }
+    temp=temp->next;
+  }
+  return head;
+}
 int main(){
 vector<int>arr={22,5,8,7};
 Node* head=convertArr2LL(arr);
-head=InsertAtEnd(head,23);
-head=InsertAtEnd(head,23);
-head=InsertAtEnd(head,100);
+// head=InsertAtEnd(head,23);
+// head=InsertAtEnd(head,23);
+// head=InsertAtEnd(head,100);
+head=insertBeforeVAlue(head,100,7);
 print(head);
 return 0;
 }
