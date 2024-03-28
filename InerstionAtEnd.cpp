@@ -51,6 +51,7 @@ void print(Node* head){
           cout<<temp->data<<" ";
           temp=temp->next;
      }
+    
 }
 int main(){
 vector<int>arr={22,5,8,7};
@@ -59,5 +60,6 @@ head=InsertAtEnd(head,23);
 head=InsertAtEnd(head,23);
 head=InsertAtEnd(head,100);
 print(head);
+
 return 0;
 }

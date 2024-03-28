@@ -32,31 +32,23 @@ Node* convertArrtoLinked(vector<int> &v){
     return head;
 }
 
-Node* DeleteTail(Node* head){
-  if(head==NULL || head->next==nullptr){
-      return NULL;
-  } 
-  Node* tail=head;
-  while(tail->next!=NULL){
-      tail=tail->next;
-  }
-  Node* prev=tail->back;
-  tail->back=nullptr;
-  prev->next=nullptr;
-  free (tail);
 
-  return head;
-}
 void print(Node* head){
     while(head!=NULL){
       cout<<head->data<<" ";
       head=head->next;
     }
 }
+
+Node* InsertBeforeHead(Node* head,int value){
+    Node* newHead=new Node(value,head,nullptr);
+    head->back=newHead;
+    return newHead;
+}
 int main(){
 vector<int>v={11,12,45,67,7,56};
 Node* head=convertArrtoLinked(v);
-head=DeleteTail(head);
+head=InsertBeforeHead(head,234);
 print(head);
 return 0;
 }

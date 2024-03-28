@@ -79,7 +79,7 @@ Node* head=convertArr2LL(arr);
 // head=InsertAtEnd(head,23);
 // head=InsertAtEnd(head,23);
 // head=InsertAtEnd(head,100);
-head=insertBeforeVAlue(head,100,7);
+head=insertBeforeVAlue(head,100,8);
 print(head);
 return 0;
 }

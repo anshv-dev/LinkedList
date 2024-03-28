@@ -84,7 +84,7 @@ Node* head=convertArr2LL(arr);
 // head=InsertAtEnd(head,23);
 // head=InsertAtEnd(head,23);
 // head=InsertAtEnd(head,100);
-head=insertPosition(head,100,2 );
+head=insertPosition(head,100,3);
 print(head);
 return 0;
 }

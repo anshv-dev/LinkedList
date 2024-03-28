@@ -50,7 +50,7 @@ void print(Node* head){
 int main(){
 vector<int>arr={22,5,8,7};
 Node* head=convertArr2LL(arr);
-head=InsertAtHead(head,14);
+head=InsertAtHead(head,134);
 print(head);
 return 0;
 }

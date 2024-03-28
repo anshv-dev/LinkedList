@@ -31,22 +31,6 @@ Node* convertArrtoLinked(vector<int> &v){
     }
     return head;
 }
-
-Node* DeleteTail(Node* head){
-  if(head==NULL || head->next==nullptr){
-      return NULL;
-  } 
-  Node* tail=head;
-  while(tail->next!=NULL){
-      tail=tail->next;
-  }
-  Node* prev=tail->back;
-  tail->back=nullptr;
-  prev->next=nullptr;
-  free (tail);
-
-  return head;
-}
 void print(Node* head){
     while(head!=NULL){
       cout<<head->data<<" ";
@@ -54,9 +38,8 @@ void print(Node* head){
     }
 }
 int main(){
-vector<int>v={11,12,45,67,7,56};
+vector<int>v={12,45,67,7,45};
 Node* head=convertArrtoLinked(v);
-head=DeleteTail(head);
 print(head);
 return 0;
 }

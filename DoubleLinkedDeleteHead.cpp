@@ -32,19 +32,15 @@ Node* convertArrtoLinked(vector<int> &v){
     return head;
 }
 
-Node* DeleteTail(Node* head){
+Node* DeleteHead(Node* head){
   if(head==NULL || head->next==nullptr){
       return NULL;
   } 
-  Node* tail=head;
-  while(tail->next!=NULL){
-      tail=tail->next;
-  }
-  Node* prev=tail->back;
-  tail->back=nullptr;
+  Node* prev=head;
+  head=head->next;
+  head->back=nullptr;
   prev->next=nullptr;
-  free (tail);
-
+  free(prev);
   return head;
 }
 void print(Node* head){
@@ -54,9 +50,9 @@ void print(Node* head){
     }
 }
 int main(){
-vector<int>v={11,12,45,67,7,56};
+vector<int>v={11,12,45,67,7};
 Node* head=convertArrtoLinked(v);
-head=DeleteTail(head);
+head=DeleteHead(head);
 print(head);
 return 0;
 }
